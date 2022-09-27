@@ -27,71 +27,99 @@ namespace ПР5
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            vvodKmM.Visibility = Visibility.Visible;
-            choiceOfUnits.Visibility = Visibility.Visible;
-            choiceOfUnits2.Visibility = Visibility.Collapsed;
-            vvodKol.Visibility = Visibility.Collapsed;
+            oneClick.Visibility = Visibility.Visible;
+            twoClick.Visibility = Visibility.Collapsed;
+            reztwo.Visibility = Visibility.Collapsed;
+            btnEnter.Visibility = Visibility.Visible;
         }
 
         private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
         {
-            vvodKmM.Visibility = Visibility.Collapsed;
-            choiceOfUnits.Visibility = Visibility.Collapsed;
-            choiceOfUnits2.Visibility = Visibility.Visible;
-            vvodKol.Visibility = Visibility.Visible;
-
+            oneClick.Visibility = Visibility.Collapsed;
+            twoClick.Visibility = Visibility.Visible;
+            rezone.Visibility = Visibility.Collapsed;           
+            btnEnter.Visibility = Visibility.Visible;
         }
 
         private void btnEnter_Click(object sender, RoutedEventArgs e)
         {
-            double rez;
-            int kolKm = Convert.ToInt32(txtKolKm.Text);
-            int kolM = Convert.ToInt32(txtKolM.Text);
-            switch (cmb1.SelectedIndex)
+            if(one.IsChecked==true)
             {
-                case 0:
-                    rez = (kolKm * 1000 + kolM) * 0.000621371;
-                    txtRez.Text = rez+ " миля";
-                    break;
-                case 1:
-                    rez = (kolKm * 1000 + kolM) * 3.28084;
-                    txtRez.Text = rez + " фут";
-                    break;
-                case 2:
-                    rez = (kolKm * 1000 + kolM) * 1.09361;
-                    txtRez.Text = rez + " ярд";
-                    break;
-                case 3:
-                    rez = (kolKm * 1000 + kolM) * 39.3701;
-                    txtRez.Text = rez + " дюйм";
-                    break;
-                case 4:
-                    rez = (kolKm * 1000 + kolM) * 0.000937383;
-                    txtRez.Text = rez + " верст";
-                    break;
+                double rez;
+                int kolKm = Convert.ToInt32(txtKolKm.Text);
+                int kolM = Convert.ToInt32(txtKolM.Text);
+                switch (cmb1.SelectedIndex)
+                {
+                    case 0:
+                        rez = (kolKm * 1000 + kolM) * 0.000621371;
+                        txtRez.Text = Convert.ToString(kolM);
+                        break;
+                    case 1:
+                        rez = (kolKm * 1000 + kolM) * 3.28084;
+                        txtRez.Text = Convert.ToString(kolM);
+                        break;
+                    case 2:
+                        rez = (kolKm * 1000 + kolM) * 1.09361;
+                        txtRez.Text = Convert.ToString(kolM);
+                        break;
+                    case 3:
+                        rez = (kolKm * 1000 + kolM) * 39.3701;
+                        txtRez.Text = Convert.ToString(kolM);
+                        break;
+                    case 4:
+                        rez = (kolKm * 1000 + kolM) * 0.000937383;
+                        txtRez.Text = Convert.ToString(kolM);
+                        break;
+                }
+                rezone.Visibility = Visibility.Visible;
+                reztwo.Visibility = Visibility.Collapsed;
+            }
+            else if(two.IsChecked==true)
+            {
+                double kol = Convert.ToDouble(txtKol.Text);
+                
+                double qq;
+                switch(cmb2.SelectedIndex)
+                {
+                    case 0:
+                        qq = kol * 1609.34;
+                        podsch(qq);
+                        break;
+                    case 1:
+                        qq = kol * 0.3048;
+                        podsch(qq);
+                        break;
+                    case 2:
+                        qq = kol * 0.9144;
+                        podsch(qq);
+                        break;
+                    case 3:
+                        qq = kol * 0.0254;
+                        podsch(qq);
+                        break;
+                    case 4:
+                        qq = kol * 1066.8;
+                        podsch(qq);
+                        break;
+                }
+                reztwo.Visibility = Visibility.Visible;
+                rezone.Visibility = Visibility.Collapsed;
             }
         }
 
-        private void cmb2_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void podsch(double qq)
         {
-            switch(cmb2.SelectedIndex)
+            int kolKm = 0;
+            double kolM;
+            while (qq > 999)
             {
-                case 0:
-                    units.Text = "м";
-                    break;
-                case 1:
-                    units.Text = "фнт";
-                    break;
-                case 2:
-                    units.Text = "ярд";
-                    break;
-                case 3:
-                    units.Text = "дм";
-                    break;
-                case 4:
-                    units.Text = "врст";
-                    break;
+                kolKm++;
+                qq -= 1000;
             }
+            kolM = qq;
+            RezKm.Text = Convert.ToString(kolKm) + " км";
+            RezM.Text = Convert.ToString(kolM) + " м";
         }
+
     }
 }
