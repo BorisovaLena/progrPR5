@@ -7,6 +7,36 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="250*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Перевод единиц измерения расстояний"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <GroupBox Header="Выберите тип исходных данных">
+                <StackPanel>
+                    <RadioButton Checked="RadioButton_Checked">Перевод из киллометров и метров</RadioButton>
+                    <RadioButton Checked="RadioButton_Checked_1">Перевод из произвольно выбранной единицы измерения</RadioButton>
+                </StackPanel>
+            </GroupBox>
+            <StackPanel x:Name="vvodKmM" Orientation="Horizontal" Visibility="Collapsed">
+                <TextBlock>Введите количество:</TextBlock>
+                <TextBox Name="txtKolKm" Width="100"/>
+                <TextBlock>км</TextBlock>
+                <TextBox Name="txtKolM" Width="100"/>
+                <TextBlock>м</TextBlock>
+            </StackPanel>
+            <StackPanel>
+                
+            </StackPanel>
+            
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Выполнила Борисова Лена"/>
+        </StackPanel>
     </Grid>
 </Window>

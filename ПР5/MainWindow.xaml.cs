@@ -24,5 +24,16 @@ namespace ПР5
         {
             InitializeComponent();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            vvodKmM.Visibility = Visibility.Visible;
+
+        }
+
+        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
+        {
+            vvodKmM.Visibility = Visibility.Collapsed;
+        }
     }
 }
