@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <TextBlock Text="Перевод единиц измерения расстояний"/>
+            <TextBlock Text="Конвертер расстояния"/>
         </StackPanel>
         <StackPanel Grid.Row="1">
             <GroupBox Header="Выберите тип исходных данных">
@@ -30,10 +30,42 @@
                 <TextBox Name="txtKolM" Width="100"/>
                 <TextBlock>м</TextBlock>
             </StackPanel>
-            <StackPanel>
-                
+            <StackPanel x:Name="choiceOfUnits" Visibility="Collapsed">
+                <TextBlock>Выберите единицу измерения, в которую нужно перевести</TextBlock>
+                <ComboBox Name="cmb1">
+                    <ComboBoxItem>Мили</ComboBoxItem>
+                    <ComboBoxItem>Футы</ComboBoxItem>
+                    <ComboBoxItem>Ярды</ComboBoxItem>
+                    <ComboBoxItem>Дюймы</ComboBoxItem>
+                    <ComboBoxItem>Версты</ComboBoxItem>
+                </ComboBox>
+                <Button x:Name="btnEnter" Content="Перевести" Click="btnEnter_Click"/>
             </StackPanel>
-            
+
+
+
+
+            <StackPanel x:Name="choiceOfUnits2" Visibility="Collapsed">
+                <TextBlock>Выберите единицу измерения, которую нужно перевести</TextBlock>
+                <ComboBox Name="cmb2" SelectionChanged="cmb2_SelectionChanged">
+                    <ComboBoxItem>Мили</ComboBoxItem>
+                    <ComboBoxItem>Футы</ComboBoxItem>
+                    <ComboBoxItem>Ярды</ComboBoxItem>
+                    <ComboBoxItem>Дюймы</ComboBoxItem>
+                    <ComboBoxItem>Версты</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel x:Name="vvodKol"  Orientation="Horizontal" Visibility="Collapsed">
+                <TextBlock>Введите количество:</TextBlock>
+                <TextBox Name="txtKol" Width="100"/>
+                <TextBlock x:Name="units"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock>Результат: </TextBlock>
+                <TextBlock x:Name="txtRez"/>
+            </StackPanel>
+
         </StackPanel>
         <StackPanel Grid.Row="2">
             <TextBlock Text="Выполнила Борисова Лена"/>
