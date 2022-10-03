@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            <TextBlock Text="Конвертер расстояния"/>
+            <TextBlock Text="Конвертер расстояния" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
         
         <StackPanel Grid.Row="1">
@@ -27,9 +27,9 @@
             <StackPanel x:Name="oneClick" Visibility="Collapsed">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Введите количество:</TextBlock>
-                    <TextBox Name="txtKolKm" Width="100"/>
+                    <TextBox Name="txtKolKm" PreviewTextInput="txtKolKm_PreviewTextInput"/>
                     <TextBlock>км</TextBlock>
-                    <TextBox Name="txtKolM" Width="100"/>
+                    <TextBox Name="txtKolM" PreviewTextInput="txtKolKm_PreviewTextInput"/>
                     <TextBlock>м</TextBlock>
                 </StackPanel>
                 <StackPanel>
@@ -44,10 +44,9 @@
                 </StackPanel>
             </StackPanel>
 
-
-            <StackPanel x:Name="twoClick" Visibility="Collapsed">
+            <StackPanel x:Name="twoClick" Visibility="Visible" >
                 <StackPanel>
-                    <TextBlock>Выберите единицу измерения, которую нужно перевести</TextBlock>
+                    <TextBlock>Выбрите единицу измерения, которую нужно перевести</TextBlock>
                     <ComboBox Name="cmb2">
                         <ComboBoxItem>Мили</ComboBoxItem>
                         <ComboBoxItem>Футы</ComboBoxItem>
@@ -58,21 +57,20 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock>Введите количество: </TextBlock>
-                    <TextBox Name="txtKol" Width="100"/>
+                    <TextBox Name="txtKol"/>
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="btnEnter" Content="Перевести" Click="btnEnter_Click" Visibility="Collapsed"/>
+            <Button x:Name="btnEnter" Content="Перевести" Click="btnEnter_Click" Visibility="Visible" Template="{StaticResource CTButon}"/>
         </StackPanel>
-        
         
         <StackPanel Grid.Row="2" Orientation="Horizontal">
             <TextBlock>Результат:</TextBlock>
-            <StackPanel x:Name="rezone" Orientation="Horizontal" Visibility="Collapsed">
-                <TextBox x:Name="txtRez" Width="200"/>
+            <StackPanel x:Name="rezone" Orientation="Horizontal" Visibility="Collapsed" Margin="0,-30,0,0">
+                <TextBox x:Name="txtRez"/>
             </StackPanel>
-            <StackPanel x:Name="reztwo" Orientation="Horizontal" Visibility="Collapsed">
-                <TextBox x:Name="RezKm" Width="200"/>
-                <TextBox x:Name="RezM" Width="200"/>
+            <StackPanel x:Name="reztwo" Orientation="Horizontal" Visibility="Collapsed" Margin="0,-30,0,0">
+                <TextBox x:Name="RezKm"/>
+                <TextBox x:Name="RezM" />
             </StackPanel>
         </StackPanel>
     </Grid>
