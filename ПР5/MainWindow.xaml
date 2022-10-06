@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ПР5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        Background="#BAE8DE">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="27*"/>
@@ -13,7 +14,7 @@
             <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0">
+        <StackPanel Grid.Row="0" Background="#85D1C0">
             <TextBlock Text="Конвертер расстояния" FontSize="20" TextAlignment="Center" FontWeight="Bold"/>
         </StackPanel>
         
@@ -44,7 +45,7 @@
                 </StackPanel>
             </StackPanel>
 
-            <StackPanel x:Name="twoClick" Visibility="Visible" >
+            <StackPanel x:Name="twoClick" Visibility="Collapsed" >
                 <StackPanel>
                     <TextBlock>Выбрите единицу измерения, которую нужно перевести</TextBlock>
                     <ComboBox Name="cmb2">
@@ -60,10 +61,10 @@
                     <TextBox Name="txtKol"/>
                 </StackPanel>
             </StackPanel>
-            <Button x:Name="btnEnter" Content="Перевести" Click="btnEnter_Click" Visibility="Visible" Template="{StaticResource CTButon}"/>
+            <Button x:Name="btnEnter" Content="Перевести" Click="btnEnter_Click" Visibility="Collapsed" Template="{StaticResource CTButon}"/>
         </StackPanel>
-        
-        <StackPanel Grid.Row="2" Orientation="Horizontal">
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Background="#85D1C0">
             <TextBlock>Результат:</TextBlock>
             <StackPanel x:Name="rezone" Orientation="Horizontal" Visibility="Collapsed" Margin="0,-30,0,0">
                 <TextBox x:Name="txtRez"/>
